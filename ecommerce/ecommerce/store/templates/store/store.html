@@ -1,0 +1,449 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+     {% for product in products %}
+	<div class="col-lg-4">
+          <!-- <img class="thumbnail" src="{% static 'images/placeholder.png' %}"> -->
+          <img class="thumbnail" src="{{product.imageURL}}">
+          <div class="box-element product">
+               <h6><strong>{{product.name}}</strong></h6>
+               <hr>
+     
+               <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+               <a class="btn btn-outline-success" href="#">View</a>
+               <h4 style="display: inline-block; float: right"><strong>{{product.price|floatformat:2}}</strong></h4>
+     
+          </div>
+     </div>
+     {% endfor %}
+     <!-- <div class="col-lg-4">
+          <img class="thumbnail" src="{% static 'images/placeholder.png' %}">
+          <div class="box-element product">
+               <h6><strong>Product</strong></h6>
+               <hr>
+     
+               <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+               <a class="btn btn-outline-success" href="#">View</a>
+               <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+     
+          </div>
+     </div>
+
+	<div class="col-lg-4">
+          <img class="thumbnail" src="{% static 'images/placeholder.png' %}">
+          <div class="box-element product">
+               <h6><strong>Product</strong></h6>
+               <hr>
+
+               <button  class="btn btn-outline-secondary add-btn">Add to Cart</button>
+               <a class="btn btn-outline-success" href="#">View</a>
+               <h4 style="display: inline-block; float: right"><strong>$20</strong></h4>
+
+          </div>
+     </div> -->
+</div>
+<!-- <section id="b1">
+     <h4>Trade in offer</h4>
+     <h2>Super value deals</h2>
+     <h1>On all products</h1>
+     <p>Save more with Coupons and up to 70% off!</p>
+     <button>Shop Now</button>
+</section>
+ 
+<section id="feature" class="section-p1">
+     <div class="fe-box">
+         <img src="static/Img/f1.png" alt="">
+         <h6>Free Shipping</h6>
+     </div>
+     <div class="fe-box">
+         <img src="static/Img/f2.png" alt="">
+         <h6>Online Order</h6>
+     </div>
+     <div class="fe-box">
+         <img src="static/Img/f3.png" alt="">
+         <h6>Save Money</h6>
+     </div>
+     <div class="fe-box">
+         <img src="static/Img/f4.png" alt="">
+         <h6>Promotion</h6>
+     </div>
+     <div class="fe-box">
+         <img src="static/Img/f5.png" alt="">
+         <h6>Happy Sell</h6>
+     </div>
+     <div class="fe-box">
+         <img src="static/Img/f6.png" alt="">
+         <h6>24/7 Support</h6>
+     </div>
+</section>
+
+<section id="products" class="section-p1">
+     <h2>Featured Products</h2>
+     <p>Summer Collection New Modern Design</p>
+     <div class="pro-container">
+         <div class="p1">
+             <img src="static/Img/p1_1.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Purple Courduroy Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p2_1.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Full Sleeves Black Dobby Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p3_1.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Full Sleeves Maroon Lenin Digital Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p4_1.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Brown Rayon Cotton Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p5.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Green Dobby Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p6.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Wanted Green Cotton Blend Checks Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p7.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Self Designed Cotton Printed Cream Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/p8.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Trendy Crushed Cream Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+     </div>
+</section>
+
+ <section id="banner" class="section-m1">
+     <h4>Services</h4>
+     <h2>Up to <span>70% Off</span> - All Shirts</h2>
+     <button class="normal">Explore More</button>
+ </section>
+
+ <section id="products" class="section-p1">
+     <h2>New Arrival</h2>
+     <p>Summer Collection New Modern Design</p>
+     <div class="pro-container">
+         <div class="p1">
+             <img src="static/Img/n1.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Abstract Art Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n2.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Lily Flower Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n3.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Red Rose Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n4.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Abstract Architecture Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n5.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Pink Mistletoe Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n6.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Half Sleeves Abstract Colored Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n7.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Self Designed Denim Cream Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+         <div class="p1">
+             <img src="static/Img/n8.jpg" alt="">
+             <div class="des">
+                 <span>Vantage</span>
+                 <h5>Trendy Cherry blossom Printed Shirt For Men</h5>
+                 <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                 </div>
+                 <h4>₹ 699</h4>
+             </div>
+             <a href="#" class="cart"><i class="fa fa-cart-shopping"></i></a>
+         </div>
+     </div>
+ </section>
+
+ <section id="sm-banner" class="section-p1">
+     <div class="banner-box1">
+         <h4>Crazy Deals</h4>
+         <h2>BUY 1 GET 1 FREE</h2>
+         <span>The best classic Shirts are on Sale</span>
+         <button class="white">Learn More</button>
+     </div>
+     <div class="banner-box1 banner-box2">
+         <h4>SPRING/SUMMER</h4>
+         <h2>Upcoming Season</h2>
+         <span>The best classic Shirts are on Sale</span>
+         <button class="white">Collection</button>
+     </div>
+ </section>
+
+ <section id="banner3" class="section-p1">
+     <div class="banner-box1">
+         <h2>SEASON SALE</h4>
+         <h3>Winter Collection -50% OFF</h3>
+     </div>
+     <div class="banner-box1 banner-box2">
+         <h2>New Collection</h4>
+         <h3>New Year Celebration 2025</h3>
+     </div>
+     <div class="banner-box1 banner-box3">
+         <h2>Shirts</h2>
+         <h3>New Formal Collection</h3>
+     </div>
+ </section>
+
+ <section id="newsletter" class="section-m1 section-p1">
+     <div class="newstext">
+         <h4>Sign Up For Newsletters</h4>
+         <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+     </div>
+     <div class= "form">
+         <input type="text" placeholder="Your email adress">
+         <button class="normal">Sign Up</button>
+     </div>
+ </section>
+
+ <footer class="section-p1">
+     <div class="col">
+         <img src="static/Img/logo.png" alt="">
+         <h4>Contact</h4>
+         <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Fransisco</p>
+         <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+         <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+         <div class="follow">
+             <h4>Follow Us</h4>
+             <div class="icon">
+                 <i class="fab fa-facebook-f"></i>
+                 <i class="fab fa-twitter"></i>
+                 <i class="fab fa-instagram"></i>
+                 <i class="fab fa-pinterest-p"></i>
+                 <i class="fab fa-youtube"></i>
+             </div>
+         </div>
+     </div>
+     <div class="col">
+         <h4>About</h4>
+         <a href="#">About Us</a>
+         <a href="#">Delivery Infromation</a>
+         <a href="#">Privacy Policy</a>
+         <a href="#">Terms & Conditions</a>
+         <a href="#">Contact Us</a>
+     </div>
+     <div class="col">
+         <h4>My Account</h4>
+         <a href="#">Sign In</a>
+         <a href="#">View Cart</a>
+         <a href="#">My Wishlist</a>
+         <a href="#">Track My Order</a>
+         <a href="#">Help</a>
+     </div>
+     <div class="col install">
+         <h4>Installed App</h4>
+         <p>From App Store or Google Play</p>
+         <div class="row">
+             <img src="static/Img/app.jpg" alt="">
+             <img src="static/Img/play.jpg" alt="">
+         </div>
+         <p>Secured Payment Gateways</p>
+         <img src="static/Img/pay.png" alt="">
+     </div>
+     <div class="copyright">
+         <p>© 2025, Tech2 etc - HTML CSS Ecommerce Platform</p>
+     </div>
+ </footer>
+ 
+ <link rel="stylesheet" href="{% static 'style.css' %}"> -->
+
+{% endblock content %}
