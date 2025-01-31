@@ -1,12 +1,72 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
 import datetime
 from .models import *
+from .forms import CreateUserForm
 from .utils import cookieCart, cartData, guestOrder
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
 
 # Create your views here.
 
+# def register_view(request):
+#      form = UserCreationForm()
+#      if request.method == 'POST':
+#           form = UserCreationForm(request.POST)
+#           if form.is_valid():
+#                form.save()
+#      context = {'form':form}
+#      return render(request, 'store/register.html', context)
+
+def register_view(request):
+     if request.method == 'POST':
+          form = CreateUserForm(request.POST)
+          if form.is_valid():
+               # login(request, form.save())
+               # user = form.cleaned_data.get('username')
+               # messages.success(request, "Account details updated for " + user)
+               form.save()
+               return redirect("store")
+     else:
+          form = CreateUserForm()
+     context = {"form": form}
+     return render(request, 'store/register.html',context)
+
+def login_view(request):
+     if request.method == 'POST':
+          form = AuthenticationForm(data=request.POST)
+          if form.is_valid():
+               # login(request, form.get_user())
+               form.get_user()
+               return redirect("store")
+     else:
+          form = AuthenticationForm()
+     context = {"form": form}
+     return render(request, 'store/login.html',context)
+
+# def login_view(request):
+#      if request.method == 'POST':
+#           username = request.POST.get('username')
+#           password = request.POST.get('password')
+#           user = authenticate(request, username=username, password=password)
+#           if user is not None:
+#                login(request, user)
+#                return redirect('store')
+#           else:
+#                messages.info(request, 'Username  OR password is incorrect')
+#                return render(request, 'store/login.html', context)
+
+#      context = {}
+#      return render(request, 'store/login.html', context)
+
+def logout_view(request):
+     if request.method == 'POST':
+          logout(request)
+          return redirect("store")
+     
 def store(request):
      # if request.user.is_authenticated:
      #      customer = request.user.customer
