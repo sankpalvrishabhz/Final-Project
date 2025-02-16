@@ -1,0 +1,54 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href=" {% static 'css/profile.css' %}" />
+{% endblock %}
+
+<div class="container">
+  <div class="profile-header">
+        {% if user.profile.profile_picture %}
+          <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" width="100">
+        {% else %}
+          <img src="/images/profiles/blank_profile_picture.jpg" alt="Default Avatar" width="100">
+        {% endif %}
+  
+      <h2>{{ user.username }}</h2>
+  </div>
+
+  <div class="user-info">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+        <!-- {% if profile and profile.address %}
+            <p><strong>Address:</strong> {{ profile.address }}</p>
+        {% else %}
+            <p><strong>Address:</strong> Not provided</p>
+        {% endif %} -->
+  </div>
+
+  <h3>Order History</h3>
+  <table>
+      <tr>
+          <th>Product</th>
+          <th>Order Date</th>
+          <th>Status</th>
+      </tr>
+      {% for order in orders %}
+      <tr>
+          <td>{{ order.product_name }}</td>
+          <td>{{ order.order_date }}</td>
+          <td>{{ order.status }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+          <td colspan="3">No orders found.</td>
+      </tr>
+      {% endfor %}
+  </table>
+  <br>
+  <br>
+  <a href="{% url 'profile-edit' %}" class="herf-button">Edit Profile</a>
+
+</div>
+
+{% endblock content %}

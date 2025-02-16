@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href=" {% static 'css/products.css' %}" />
+{% endblock %}
+
+
+<div class="product-container">
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+    {% endif %}
+    <h1 class="product-name">{{ product.name }}</h1>
+    <p class="product-price">${{ product.price }}</p>
+    <p class="product-description">{{ product.description }}</p>
+    <div class="buttons">
+        <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+        <a class="btn btn-outline-success" href="{% url 'store' %}">Back to Store</a>
+    </div>
+</div>
+
+{% endblock content %}
